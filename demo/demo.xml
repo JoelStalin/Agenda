@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+  <!-- Contacto 1 -->
+    <record id="contact_agenda_1" model="contact.agenda">
+        <field name="name">Juan Pérez</field>
+        <field name="age">30</field>
+        <field name="phone">+1 809 555 5555</field>
+        <field name="email">juan.perez@example.com</field>
+        <field name="user_type">internal</field>
+        <!-- <field name="photo" type="base64">/9j/4AAQSkZJRgABAQAAAQABAAD/...</field> -->
+    </record>
+
+    <!-- Direcciones del Contacto 1 -->
+    <!-- <record id="contact_address_1" model="contact.address"> -->
+        <!-- <field name="street">Av Los Próceres</field> -->
+        <!-- <field name="city">Santo Domingo</field> -->
+    <!-- </record> -->
+    
+    </data>
+</odoo>

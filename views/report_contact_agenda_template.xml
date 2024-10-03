@@ -1,0 +1,29 @@
+<odoo>
+    <template id="report_contact_agenda_template">
+        <t t-call="web.html_container">
+            <t t-slot="body">
+                <main>
+                    <h2>Agenda de Contactos</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                                <th>Teléfono</th>
+                                <th>Correo Electrónico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="o">
+                                <td><t t-esc="o.name"/></td>
+                                <td><t t-esc="o.age"/></td>
+                                <td><t t-esc="o.phone"/></td>
+                                <td><t t-esc="o.email"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </main>
+            </t>
+        </t>
+    </template>
+</odoo>

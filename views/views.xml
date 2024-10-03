@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+
+   
+        <record id="contactagenda_view_form" model="ir.ui.view">  <!-- Cambié el ID para evitar conflictos -->
+            <field name="name">contact.agenda.form</field>
+            <field name="model">contact.agenda</field>
+            <field name="arch" type="xml">
+                <form string="Agenda de Contactos">
+                    <header>
+                        <!-- Botón para crear un usuario, solo visible si tienes el permiso -->
+                        <button name="create_user" type="object" string="Crear Usuario" groups="agenda_contactos.group_create_user"/>
+                        
+                        <!-- Botón para imprimir los datos -->
+                        <button name="print_report" type="object" string="Imprimir Datos" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="photo" widget="image" class="oe_avatar"/>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <!-- Campo para subir la foto -->
+                           
+                            <!-- <field name="photo_filename" invisible="1"/> -->
+                        </group>
+                        <group>
+                            <!-- Lista de direcciones asociadas -->
+                            <field name="address_ids">
+                                <tree>
+                                    <field name="street"/>
+                                    <field name="city"/>
+                                    <field name="country_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="Agenda.action_window">
+            <field name="name">agenda</field>
+            <field name="res_model">contact.agenda</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    <!-- server action to the one above -->
+    
+    <!-- <record model="ir.actions.server" id="my_module.action_server"> -->
+      <!-- <field name="name">my_module server</field> -->
+      <!-- <field name="model_id" ref="model_my_module_my_module"/> -->
+      <!-- <field name="state">code</field> -->
+      <!-- <field name="code"> -->
+        <!-- action = { -->
+          <!-- "type": "ir.actions.act_window", -->
+          <!-- "view_mode": "tree,form", -->
+          <!-- "res_model": self._name, -->
+        <!-- } -->
+      <!-- </field> -->
+    <!-- </record> -->
+   
+
+
+    <!-- Menú principal -->
+        <menuitem id="menu_contact_agenda_root" name="Agenda" sequence="10"/>
+
+    <!-- Submenú para la vista -->
+        <menuitem id="menu_contact_agenda" name="Contact Agenda" parent="menu_contact_agenda_root" action="Agenda.action_window"/>
+    
+    </data>
+</odoo>

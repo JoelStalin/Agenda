@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id,perm_read,perm_write,perm_create,perm_unlink
+access_Agenda_contact_agenda,contact.agenda,model_contact_agenda,,1,1,1,1
+access_Agenda_contact_address,contact.address,model_contact_address,,1,1,1,1
+
+
+

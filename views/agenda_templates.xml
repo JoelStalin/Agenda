@@ -1,0 +1,42 @@
+
+<odoo>
+    <data>
+        <!-- Plantilla QWeb para el reporte -->
+            <template id="agenda_template" name="Agenda de Contactos">
+            <div class="container">
+                <h1>Agenda de Contactos</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th >Nombre</th>
+                            <th >Teléfono</th>
+                            <th >Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="contacts" t-as="contact">
+                            <tr>
+                                <td><t t-esc="contact.name"/></td>
+                                <td><t t-esc="contact.age"/></td>
+                                <td><t t-esc="contact.phone"/></td>
+                                <td><t t-esc="contact.email"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+     
+    </template>
+
+        <!-- Acción del reporte -->
+        <record id="action_report_contact_agenda" model="ir.actions.report">
+            <field name="name">Informe de Agenda de Contactos</field>
+            <field name="model">contact.agenda</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">Agenda.report_contact_agenda_template</field>
+            <field name="report_file">Agenda.report_contact_agenda_template</field>
+            <field name="print_report_name">'Informe de Agenda de Contactos - %s' % (object.name)</field>
+        </record>
+    </data>
+</odoo>
+
